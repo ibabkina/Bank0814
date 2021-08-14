@@ -39,8 +39,8 @@ const AccountDetail = (props) => {
                 <div className="row">
                 <Breadcrumb>
                     {/* <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem> */}
-                    <BreadcrumbItem><Link to='/userAccounts'>UserAccounts</Link></BreadcrumbItem>
-                    <BreadcrumbItem active> {props.account.accountNumber}</BreadcrumbItem>
+                    <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
+                    <BreadcrumbItem active> Account# {props.account.accountNumber}</BreadcrumbItem>
                 </Breadcrumb>
                 <div className="col-12">
                     <h3>CheckingAccount: {props.account.accountNumber}</h3>

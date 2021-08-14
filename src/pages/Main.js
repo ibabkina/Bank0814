@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Home from './Home';
+// import Home from './Home';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import UserAccounts from '../components/UserAccounts';
+import Home from '../components/Home';
 import Contact from '../components/Contact';
 import { ACCOUNT_HOLDERS } from '../shared/accountHolders';
 import AccountDetail from './AccountDetail';
@@ -36,12 +36,12 @@ class Main extends Component {
 
   render() {
 
-    const HomePage = () => {
-      // console.log("in Home"); 
-      return (
-        <Home />
-      )
-    }
+    // const HomePage = () => {
+    //   // console.log("in Home"); 
+    //   return (
+    //     <Home />
+    //   )
+    // }
 
       const AccountWithId = ({match}) => {
       // console.log("in AccountWithId"); //match = " + match.params);
@@ -55,15 +55,16 @@ class Main extends Component {
     return (
       <div>
         <Header />
-        {/* <UserAccounts checkingAccounts={this.state.checkingAccounts}
+        {/* <Home checkingAccounts={this.state.checkingAccounts}
         // Need to pass onAccountSelect to the Home components
           onClick={(accountId) => this.onAccountSelect(accountId)} />  */}
         {/* We are passing the first element [0] of the below subarray (.filter returns subarray) to AccountDetail: */}
         {/* <AccountDetail selectedAccount={this.state.checkingAccounts.filter((account) => account.accountNumber === this.state.selectedAccount)[0]} /> */}
         <Switch>
-          <Route path="/home" component={HomePage} />
-          <Route exact path="/userAccounts" component={() => <UserAccounts checkingAccounts={this.state.checkingAccounts} />} />
-          <Route path="/userAccounts/:accountId" component={AccountWithId} />
+          {/* <Route path="/home" component={HomePage} /> */}
+          {/* <Route path="/home" component={HomePage} /> */}
+          <Route exact path="/home" component={() => <Home checkingAccounts={this.state.checkingAccounts} />} />
+          <Route path="/home/:accountId" component={AccountWithId} />
           {/* //if you don't need to send props then {Contact} */}
           <Route exact path='/contactus' component={Contact} />
           {/* If path doesn't match will be redicected to Home - change to Main!!! */}

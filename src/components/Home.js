@@ -34,7 +34,7 @@ function RenderAccountItem({ account, onClick }) {
     return (
         // <Card onClick={() => onClick(account.accountNumber)}>
         <Card>
-            <Link to={`/userAccounts/${account.accountNumber}`} >
+            <Link to={`/home/${account.accountNumber}`} >
                 {/* <CardImgOverlay> */}
                 <CardBody>
                     <CardTitle>Personal Checking: </CardTitle>
@@ -47,9 +47,9 @@ function RenderAccountItem({ account, onClick }) {
 }
 
 //Another to implement functional component
-const UserAccounts = (props) => {
-    // console.log("in UserAccounts"); 
-    const userAccounts = props.checkingAccounts.map((account) => {
+const Home = (props) => {
+    // console.log("in Home"); 
+    const home = props.checkingAccounts.map((account) => {
         return (
             <div key={account.accountNumber} className="col-12 col-md-5 m-1">
                 {/* <RenderAccounts account={account} onClick={props.onClick} /> */}
@@ -63,8 +63,8 @@ const UserAccounts = (props) => {
         <div className="container" >
             <div className="row">
                 <Breadcrumb>
-                    <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
-                    <BreadcrumbItem active>UserAccounts</BreadcrumbItem>
+                    {/* <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem> */}
+                    <BreadcrumbItem active>Home</BreadcrumbItem>
                 </Breadcrumb>
 
                 <div className="col-12">
@@ -74,7 +74,7 @@ const UserAccounts = (props) => {
                 </div>
             </div>
             <div className="row">
-                {userAccounts}
+                {home}
             </div>
         </div>
     );
@@ -113,4 +113,4 @@ const UserAccounts = (props) => {
 //     }
 // }
 
-export default UserAccounts;
+export default Home;
