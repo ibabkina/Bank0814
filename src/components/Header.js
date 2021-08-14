@@ -47,6 +47,9 @@ class Header extends Component {
                             <NavItem>
                                 <NavLink className="nav-link" to='/contactus'> Contact Us</NavLink>
                             </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link" to='/login'> Login</NavLink>
+                            </NavItem>
                         </Nav>
                         </Collapse>
                     </div>

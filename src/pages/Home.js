@@ -15,6 +15,31 @@ class Home extends Component {
         }
     }
 
+    meApiCall = async () => {
+
+        let url = 'http://localhost:8080/Me';
+        const h = new Headers();
+        let jwt = sessionStorage.getItem('jwt');
+        h.append('Authorization', 'Bearer ' + jwt);
+
+        const requestOptions1 = {
+            method: 'GET',
+            mode: 'cors',
+            headers: h,
+        };
+
+        const a = await fetch(new Request(url, requestOptions1))
+            .then((response) => response.json())
+            .then((content) => {
+                console.log(content);
+                this.setState()
+            })
+            .catch(err => {
+                console.error(err.message);
+            })
+
+    }
+
     onAccountSelect(account) {
         this.setState({ selectedAccount: account });
         // console.log('accountId = ' + accountId)
@@ -66,9 +91,9 @@ class Home extends Component {
             return (
                 <div key={account.accountNumber} className="col-12 col-md-5 m-1">
                     <Card onClick={() => this.onCardSelect(account)}>
-                    {/* <RenderAccountItem account={account} onClick={props.onClick} /> */}
-                    {/* <RenderAccountItem account={account} /> */}
-                    {/* {this.renderAccount(account)} */}
+                        {/* <RenderAccountItem account={account} onClick={props.onClick} /> */}
+                        {/* <RenderAccountItem account={account} /> */}
+                        {/* {this.renderAccount(account)} */}
                     </Card>
                 </div>
             );
@@ -93,7 +118,7 @@ class Home extends Component {
                     {home}
                 </div>
                 <div className="row">
-                    {this.renderAccount(this.state.selectedAccount)}
+                    {this.renderAccount(this.state.selected)}
                 </div>
             </div>
         );

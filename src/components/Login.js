@@ -45,24 +45,24 @@ import { Redirect, Route } from "react-router-dom";
             // }
             
 
-            let url = 'http://localhost:8080/Me';
-            const h = new Headers();
-            h.append('Authorization', 'Bearer ' + token);
+            // let url = 'http://localhost:8080/Me';
+            // const h = new Headers();
+            // h.append('Authorization', 'Bearer ' + token);
 
-            const requestOptions1 = {
-                method: 'GET',
-                mode: 'cors',
-                headers: h,
-            };
+            // const requestOptions1 = {
+            //     method: 'GET',
+            //     mode: 'cors',
+            //     headers: h,
+            // };
 
-            const a = await fetch(new Request(url, requestOptions1))
-                .then((response) => response.json())
-                .then((content) => {
-                    console.log(content);
-                })
-                .catch(err => {
-                    console.error(err.message);
-                })
+            // const a = await fetch(new Request(url, requestOptions1))
+            //     .then((response) => response.json())
+            //     .then((content) => {
+            //         console.log(content);
+            //     })
+            //     .catch(err => {
+            //         console.error(err.message);
+            //     })
 
             setRedirect(true);
             // setFirstName(content.firstName);

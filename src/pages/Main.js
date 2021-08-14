@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Home from './Home';
 import Header from '../components/Header';
-import Login from '../components/Login';
+// import Login from '../components/Login';
+import Login from './Login';
 import Footer from '../components/Footer';
 import Contact from '../components/Contact';
 import { ACCOUNT_HOLDERS } from '../shared/accountHolders';
@@ -55,14 +56,14 @@ class Main extends Component {
     return (
       <div>
         <Header />
-        <Login />
+        {/* <Login /> */}
         {/* <Home checkingAccounts={this.state.checkingAccounts}
         // Need to pass onAccountSelect to the Home components
           onClick={(accountId) => this.onAccountSelect(accountId)} />  */}
         {/* We are passing the first element [0] of the below subarray (.filter returns subarray) to AccountDetail: */}
         {/* <AccountDetail selectedAccount={this.state.checkingAccounts.filter((account) => account.accountNumber === this.state.selectedAccount)[0]} /> */}
         <Switch>
-          {/* <Route path="/login" component={HomePage} /> */}
+          <Route path="/login" component={Login} />
           {/* <Route path="/home" component={HomePage} /> */}
           <Route exact path="/home" component={() => <Home checkingAccounts={this.state.checkingAccounts} />} />
           <Route path="/home/:accountId" component={AccountWithId} />
