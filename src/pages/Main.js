@@ -65,7 +65,8 @@ class Main extends Component {
         <Switch>
           <Route path="/login" component={Login} />
           {/* <Route path="/home" component={HomePage} /> */}
-          <Route exact path="/home" component={() => <Home checkingAccounts={this.state.checkingAccounts} />} />
+          {/* <Route exact path="/home" component={() => <Home checkingAccounts={this.state.checkingAccounts} />} /> */}
+          <Route exact path="/home" component={Home} />
           <Route path="/home/:accountId" component={AccountWithId} />
           {/* //if you don't need to send props then {Contact} */}
           <Route exact path='/contactus' component={Contact} />

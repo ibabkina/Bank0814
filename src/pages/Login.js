@@ -4,6 +4,29 @@ import { Container, Alert } from 'reactstrap';
 import { Button, Form, FormGroup, Input, Label, Row, Col } from "reactstrap";
 // import AuthenticationService from '.././services/AuthenticationService';
 
+
+
+
+// render() {
+//     const { loggedIn } = this.state;
+//      return (
+//           <div>
+//               {!loggedIn ? < Login / > : < App / > }
+//            </div>
+//       )
+//  }
+
+
+// render() {
+//     const { loggedIn } = this.state;
+//      return (
+//           <React.Fragment>
+//               {!loggedIn ? < Login / > : < App / > }
+//            </React.Fragment>
+//       )
+//  }
+
+
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -49,33 +72,32 @@ class Login extends Component {
         console.log(requestOptions.username);
         console.log(requestOptions.password);
 
-        await fetch('http://localhost:8080/authenticate', requestOptions)
+        await fetch('authenticate', requestOptions)
             .then((response) => response.json())
             .then((content) => {
                 console.log(content);
                 if (content != null) {
                     const jwt = content.jwt;
                     alert(jwt);
+                    console.log(jwt);
                     sessionStorage.setItem('jwt', JSON.stringify(jwt));
+                    window.location.reload();
                 }
                 // return jwt;
             })
             .catch((err) => {
-                console.err(err.message);
+                console.error(err.message);
                 throw err;
             });
     };
 
     render() {
         return (
-
             <div className="container">
                 <div className="row row-header">
                      <div className="col-12 col-sm-6">
                      <main className="form-signin">
-                        <h2>
-                            Welcome
-                        </h2>
+                        <h2> Welcome</h2>
                         <Form onSubmit={this.doLogin}>
                             <FormGroup controlId="forUsername" className="form-inputs">
                                 <Input autoFocus
