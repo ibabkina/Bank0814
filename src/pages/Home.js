@@ -40,11 +40,11 @@ class Home extends Component {
             .then((response) => {
                 console.log(response);
                 const checkAccounts = response.checkingAccounts;// JSON.stringify(); 
-                const cDAccounts = JSON.stringify(response.cdaccounts); //JSON.stringify
+                const cDAccounts = response.cdaccounts; //JSON.stringify
 
                 this.setState({
-                    checkingAccounts: checkAccounts,  //JSON.parse(
-                    cdAccounts: cDAccounts, 
+                    checkingAccounts: response.checkingAccounts, //checkAccounts,  //JSON.parse(
+                    cdAccounts: response.cdaccounts, //cDAccounts, 
                     isLoaded: true
                 });
                 console.log("Log cdaccounts " + cDAccounts);
@@ -107,7 +107,8 @@ class Home extends Component {
         // const home = [];
         // if (this.state.cdaccounts) {
         //     home = this.state.cdAccounts.map((account) => {
-        const { home } = this.state.cdAccounts;
+        const home = this.state.cdAccounts;  //JSON.stringify
+        console.log("home = " + home);
 
         if (!this.state.isLoaded) {
             return <div>Loading ...</div>
